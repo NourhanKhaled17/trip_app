@@ -34,7 +34,6 @@ class TripModel {
   String get formattedDate => DateFormat('MMM d, yyyy • hh:mm a').format(startDate);
   String get formattedBookedDate => DateFormat('MMM d, yyyy').format(bookedAt!);
 
-
   Map<String, dynamic> toMap() {
     return {
       "id": id,
