@@ -11,9 +11,11 @@ class TripAdminCubit extends Cubit<TripAdminState> {
 
   TripAdminCubit(this.repository) : super(TripAdminInitial());
 
-  void initSampleData() {
     // trips from firebase
-    final trips = [
+
+    // bookings from firebase
+
+  final List<TripModel>  trips = [
       TripModel(
         id: '1',
         destination: 'Alexandria',
@@ -58,10 +60,9 @@ class TripAdminCubit extends Cubit<TripAdminState> {
       ),
     ];
 
-    final totalRevenue = trips.fold(0, (sum, t) => sum + t.price);
-
-    // bookings from firebase
-    final bookings = [
+  late final int totalTrips = trips.length;
+  late final totalRevenue = trips.fold(0, (sum, t) => sum + t.price);
+  late final List<Booking> bookings = [
       Booking(
         id: 'b1',
         trip: trips[0],
@@ -83,8 +84,9 @@ class TripAdminCubit extends Cubit<TripAdminState> {
         ),
       ),
     ];
-    // emit();
-  }
+  late final int totalBookings = bookings.length;
+
+
 
   void listenToTrips() {
     emit(TripAdminLoading());

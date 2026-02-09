@@ -3,12 +3,9 @@ import 'package:app1/features/admin/trips/presentation/view_model/trip_admin_cub
 import 'package:app1/features/admin/trips/presentation/view_model/trip_admin_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../view_model/trips_state.dart';
 import '../widgets/quick_action_tile.dart';
 import '../widgets/state_card.dart';
 import 'bookings_details_page.dart';
-
 
 class AdminDashboardPage extends StatelessWidget {
   const AdminDashboardPage({super.key});
@@ -29,13 +26,15 @@ class AdminDashboardPage extends StatelessWidget {
                   children: [
                     StatCard(
                       title: 'Total Trips',
-                      value: state.totalTrips.toString(),
+                      value: '${context.read<TripAdminCubit>().totalTrips}',
                       gradientStart: Colors.teal.shade200,
                       gradientEnd: Colors.cyan.shade200,
                     ),
                     StatCard(
                       title: 'Bookings',
-                      value: state.totalBookings.toString(),
+                      value: "${context
+                          .read<TripAdminCubit>()
+                          .totalBookings}",
                       gradientStart: Colors.purple.shade200,
                       gradientEnd: Colors.pink.shade200,
                     ),
@@ -66,7 +65,7 @@ class AdminDashboardPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        '${state.totalRevenue} EGP',
+                        '${context.read<TripAdminCubit>().totalRevenue} EGP',
                         style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
