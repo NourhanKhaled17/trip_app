@@ -1,7 +1,7 @@
+import 'package:app1/features/user/presentation/view/pages/user_home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'user_trips_screen.dart';
 
