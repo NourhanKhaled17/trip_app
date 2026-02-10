@@ -1,3 +1,4 @@
+import 'package:app1/features/home/presentation/view/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/text_style.dart';
@@ -20,7 +21,11 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppColors.surface,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(0.2 * height),
-        child: AppBarWidget(),
+        child: GestureDetector(
+          onTap: (){
+            //Navigator.pushNamed(context, ProfileScreen.routeName);
+          },
+            child: AppBarWidget(text: "Discover Egypt", des: "Plan your next adventure", icon: Icons.person_outline,)),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),

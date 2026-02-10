@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/text_style.dart';
 import '../../../data/home_card_model.dart';
-import '../pages/book_page.dart';
 import 'home_trip_card_row_widget.dart';
 
 class TripContent extends StatelessWidget {
@@ -63,7 +62,7 @@ class TripContent extends StatelessWidget {
                 backgroundColor: WidgetStatePropertyAll(AppColors.primaryGradient.colors.first),
               ),
               onPressed: (){
-                Navigator.pushNamed(context, BookPage.routeName);
+               // Navigator.pushNamed(context, BookPage.routeName);
               },
               child: Text("Book This Trip", style: AppTextStyles.smallRegular.copyWith(color: AppColors.surface)),
             ),

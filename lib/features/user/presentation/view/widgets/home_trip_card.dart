@@ -1,3 +1,4 @@
+import 'package:app1/features/user/presentation/view/pages/booking_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/text_style.dart';
@@ -50,10 +51,12 @@ class TripCardHome extends StatelessWidget {
                   Spacer(),
                   ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(AppColors.primaryGradient.colors.first
+                      backgroundColor: WidgetStatePropertyAll(AppColors.primary
                       ),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, BookingScreen.routeName);
+                    },
                     child: Text("Book Now", style: AppTextStyles.smallRegular.copyWith(color: AppColors.surface)),
                   )
                 ],
