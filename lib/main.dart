@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/user/data/home_card_model.dart';
-import 'features/user/presentation/view/pages/book_page.dart';
+import 'features/user/presentation/view/pages/booking_screen.dart';
 import 'features/user/presentation/view/pages/booking_confirmed.dart';
 import 'features/user/presentation/view/pages/home_page.dart';
 import 'features/user/presentation/view/pages/trip_details.dart';
 import 'features/user/presentation/view/pages/user_home_screen.dart';
+import 'features/user/presentation/view_model/booking_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +27,10 @@ class MyApp extends StatelessWidget {
           final args = ModalRoute.of(context)!.settings.arguments as HomeCardModel;
           return TripDetails(homeCard: args);
         },
-        BookPage.routeName:(context) => BookPage(),
+        BookingScreen.routeName:(context) => BlocProvider(
+          create: (_) => BookingCubit(),
+          child: BookingScreen(),
+        ),
         BookingConfirmed.routeName:(context) => BookingConfirmed()
       },
     );
